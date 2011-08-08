@@ -10,6 +10,16 @@ class DomainsController < ApplicationController
     end
   end
 
+ def admin1
+    @domains = Domain.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @domains }
+    end
+  end
+
+
   # GET /domains/1
   # GET /domains/1.xml
   def show
