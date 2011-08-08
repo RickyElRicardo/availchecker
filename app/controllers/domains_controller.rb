@@ -10,7 +10,7 @@ class DomainsController < ApplicationController
     end
   end
 
- def admin1
+ def admin
     @domains = Domain.all
 
     respond_to do |format|
