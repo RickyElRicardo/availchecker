@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>You have signed up to receive a notification when <%= @user.domain %> is avaible.</h1>
+    <p>
+      Please confirm your email to activate the notification by clicking the link below.
+    </p>
+    <p>
+      http://localhost:3000/confirm/<%= @user.id %>/<%= @user.confirm_code %>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
