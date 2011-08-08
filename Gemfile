@@ -33,3 +33,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'whois'
 gem 'email_validator'
 gem 'rufus-scheduler'
+
+gem "rake", "0.8.7"
