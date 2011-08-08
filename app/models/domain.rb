@@ -7,7 +7,7 @@ class Domain < ActiveRecord::Base
 	def check_domains
 		Domain.each do |f|
 		r = Whois.whois(f.domain)
-			if r.available? = true
+			if r.available? == true
 			EmailNotify.notify_email(f).deliver
 			end
 		end
