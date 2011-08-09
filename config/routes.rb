@@ -59,6 +59,7 @@ Domainnotify::Application.routes.draw do
 
     match '/confirm/:id/:auth_code', :to => 'domains#confirm'
     match '/adminwat', :to => 'domains#admin'
+    match '/run', :to => 'domains#checkdomains'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

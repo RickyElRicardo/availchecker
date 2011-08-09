@@ -107,6 +107,11 @@ class DomainsController < ApplicationController
     end
   end
 
+  def checkdomains
+    Domain.check_domains
+  end
+
+
   # DELETE /domains/1
   # DELETE /domains/1.xml
   def destroy
