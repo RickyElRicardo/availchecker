@@ -5,7 +5,7 @@ class Domain < ActiveRecord::Base
 	validates :email, :email => true
 
 	def check_domains
-		Domain.each do |f|
+		Domain.where(:confirmed => "yes").each do |f|
 		r = Whois.whois(f.domain)
 			if r.available? == true
 			EmailNotify.notify_email(f).deliver
