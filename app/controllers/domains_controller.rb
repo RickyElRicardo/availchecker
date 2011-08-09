@@ -109,12 +109,12 @@ class DomainsController < ApplicationController
 
   def checkdomains
     @domains = Domain.all
-    @domains.check_domains
-
+ 
     @domains.where(:confirmed => "yes").each do |f|
       r = Whois.whois(f.domain)
       if r.available? == true
       EmailNotify.notify_email(f).deliver
+
       end
     end
   end
