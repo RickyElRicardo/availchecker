@@ -115,11 +115,10 @@ class DomainsController < ApplicationController
       begin
         r = Whois.whois(f.domain)
         if r.available? == true
-        EmailNotify.notify_email(f).deliver
+          EmailNotify.notify_email(f).deliver
+        end
       rescue 
-        #do something here like re raise the error or store the email address in a bad_emails table or do both just simply do nothing at all
-      end
-
+        next  #do something here like re raise the error or store the email address in a bad_emails table or do both just simply do nothing at all
       end
     end
   end
