@@ -108,7 +108,8 @@ class DomainsController < ApplicationController
   end
 
   def checkdomains
-    Domain.check_domains
+    @domains = Domain.all
+    @domains.check_domains
   end
 
 
