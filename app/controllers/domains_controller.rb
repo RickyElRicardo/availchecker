@@ -82,7 +82,7 @@ class DomainsController < ApplicationController
     if @code == @domain.confirm_code
       @domain.confirmed = "yes"
       @domain.save
-      @msg = 'You have successfully confirmed your email, you will now receive a notification when #[@domain.domain] becomes avaible.'
+      @msg = 'You have successfully confirmed your email, you will now receive a notification when '+@domain.domain+' becomes avaible.'
     else
     @msg = "Error validating email."  
           

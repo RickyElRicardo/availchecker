@@ -3,7 +3,7 @@ class EmailNotify < ActionMailer::Base
 
   def notify_email(user)
   	@user = user
-  	mail(:to => user.email, :subject => "Your domain has become available.")
+  	mail(:to => user.email, :subject => @user.domain+" has become available.")
   end
 
 end
