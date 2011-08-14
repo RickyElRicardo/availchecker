@@ -9,11 +9,17 @@ class Domain < ActiveRecord::Base
 
 
 	def check_domains
-		Domain.where(:confirmed => "yes").each do |f|
-		r = Whois.whois(f.domain)
-			if r.available? == true
-			EmailNotify.notify_email(f).deliver
-			end
-		end
-	end	
-end
+      @domains = Domain.all
+
+      #@domains.where(:confirmed => "yes").each do |f|
+      @domains.each do |f|
+        begin
+          r = Whois.whois(f.domain)
+          if r.available? == true
+            EmailNotify.notify_email(f).deliver
+          end
+        rescue 
+          next  #do something here like re raise the error or store the email address in a bad_emails table or do both just simply do nothing at all
+        end
+      end
+    end
