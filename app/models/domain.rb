@@ -16,6 +16,7 @@ class Domain < ActiveRecord::Base
         r = Whois.whois(f.domain)
         if r.available? == true
           EmailNotify.notify_email(f).deliver
+          puts "Sent email to #{f.email} about #{f.domain}"
         end
       rescue 
         next  #do something here like re raise the error or store the email address in a bad_emails table or do both just simply do nothing at all
