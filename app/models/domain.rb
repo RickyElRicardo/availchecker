@@ -8,7 +8,7 @@ class Domain < ActiveRecord::Base
 
 
 
-	def check_domains
+	def self.check_domains
     @domains = Domain.all
     #@domains.where(:confirmed => "yes").each do |f|
     @domains.each do |f|
@@ -23,3 +23,4 @@ class Domain < ActiveRecord::Base
     end
   end
 end
+ 
