@@ -1,0 +1,8 @@
+<%= @successful_checks.count %> emails sent.
+
+<% @successful_checks.each do |a| %>
+
+Email sent to <%= a.email %> about <%= a.domain %> <br />
+
+<% end %>
+	

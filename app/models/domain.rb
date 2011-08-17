@@ -9,19 +9,24 @@ class Domain < ActiveRecord::Base
 
 
 	def self.check_domains
-    @domains = Domain.all
-    #@domains.where(:confirmed => "yes").each do |f|
+    @domains = Domain.where(:confirmed => "yes")
+    @successful_checks = []
     @domains.each do |f|
       begin
         r = Whois.whois(f.domain)
         if r.available? == true
           EmailNotify.notify_email(f).deliver
-          puts "Sent email to #{f.email} about #{f.domain}"
+          puts "Sent email to #{f.email} about #redirect_to(model_path(@model)){f.domain}"
+          puts "--------------------------------------------------------------------------------"
+          @successful_checks << f
         end
       rescue 
         next  #do something here like re raise the error or store the email address in a bad_emails table or do both just simply do nothing at all
       end
     end
+    EmailNotify.check_email.deliver
   end
+
+
 end
  
