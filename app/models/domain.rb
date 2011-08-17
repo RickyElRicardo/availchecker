@@ -10,7 +10,7 @@ class Domain < ActiveRecord::Base
 
 	def self.check_domains
     @domains = Domain.where(:confirmed => "yes")
-    @successful_checks = []
+    @successful_check = []
     @domains.each do |f|
       begin
         r = Whois.whois(f.domain)
