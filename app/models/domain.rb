@@ -24,7 +24,7 @@ class Domain < ActiveRecord::Base
         next  #do something here like re raise the error or store the email address in a bad_emails table or do both just simply do nothing at all
       end
     end
-    EmailNotify.check_email.deliver
+    EmailNotify.check_email(@successful_check).deliver
   end
 
 

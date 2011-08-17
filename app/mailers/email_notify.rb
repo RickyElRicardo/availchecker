@@ -6,7 +6,7 @@ class EmailNotify < ActionMailer::Base
   	mail(:to => user.email, :subject => @user.domain+" has become available.")
   end
   
-  def check_email
+  def check_email(successful_check)
   	mail(:to => "rickmasta@gmail.com", :subject => "Daily domain notify check done.")
   end
 
